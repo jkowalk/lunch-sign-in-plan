@@ -1,0 +1,710 @@
+:root {
+    --primary: #222020;
+    --secondary: white;
+    --third: #dbdbdb;
+    --theader: #343434;
+    --background: #2b2b2b;
+    --check: #568020;
+    --no_check: lightgray;
+    --info: #514f4b;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: var(--secondary);
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    background: var(--background);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1.5em;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width: 580px) {
+    body {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+table {
+    color: var(--primary);
+    margin: auto;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    display: table;
+    align-self: center;
+}
+
+tr {
+    display: table-row;
+    background: var(--secondary);
+}
+
+tr:nth-child(odd) {
+    background: var(--third);
+}
+
+td {
+    padding: 6px 0px;
+    display: table-cell;
+    text-align: center;
+}
+
+
+
+/* Use position: sticky to have it stick to the edge
+ * and top, right, or left to choose which edge to stick to: */
+
+thead th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000000;
+}
+
+tbody th {
+    position: -webkit-sticky; /* for Safari */
+    position: sticky;
+    left: 0;
+    z-index: 1000;
+}
+@media screen and (max-width: 600px) {
+    .twrapper {
+        overflow: scroll;
+        min-width: 100% !important;
+        max-height: 85vh;
+    }
+}
+
+
+/* To have the header in the first column stick to the left: */
+
+thead th:first-child {
+    left: 0;
+    z-index: 1000000;
+}
+
+
+/* Just to display it nicely: */
+.twrapper {
+    min-width: 44rem;
+}
+
+
+thead th {
+    background: var(--theader);
+    color: var(--secondary);
+    /* Ensure this stays above the emulated border right in tbody th {}: */
+    z-index: 100000;
+}
+
+tbody th {
+    background: var(--secondary);
+    border-right: 1px solid #CCC;
+    /* Browsers tend to drop borders on sticky elements, so we emulate the border-right using a box-shadow to ensure it stays: */
+    box-shadow: 1px 0 0 0 #ccc;
+    z-index: 10000;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0.5em;
+    min-height: 1rem;
+}
+
+*{font-family: 'Roboto', sans-serif;}
+
+@keyframes click-wave {
+    0% {
+        height: 40px;
+        width: 40px;
+        opacity: 0.35;
+        position: relative;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    transition: all 0.15s ease-out 0s;
+    background: var(--no_check);
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    z-index: 100;
+}
+.option-input:hover {
+    background: #596a5870;
+}
+.option-input:checked {
+    background: var(--check);
+}
+.option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.3s;
+    -moz-animation: click-wave 0.3s;
+    animation: click-wave 0.3s;
+    background: var(--check);
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+#nav {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    max-width: 55em;
+    margin: auto;
+}
+
+.button {
+    color: var(--secondary);
+    border: none;
+    background: none;
+    padding: 2em;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: var(--third);
+}
+
+.info {
+    background: var(--info);
+    padding: 10px;
+    text-align: center;
+    width: 90%;
+    margin: 1.5rem auto 0.2em;
+    max-width: 55em;
+}
+
+.float_button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #7d7777;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.38);
+    z-index: 1000000000000000;
+}
+#more {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.float_button:hover {
+    box-shadow: 0px 3px 6px rgba(136, 136, 136, 0.77);
+}
+
+.icon{
+    position: absolute;
+    transform: translate(37%, 37%);
+    width: 1.7rem;
+}
+#ul_ico {
+    width: 2.2rem;
+}
+
+#unlock {
+    justify-self: center;
+    height: 4rem;
+    width: 4rem;
+    margin: 1rem auto auto;
+}
+
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 100000000000000;
+    animation: fade 0.5s normal;
+}
+
+#stream {
+    max-width: 100vw;
+}
+
+#stream_container{
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,0);
+    -ms-transform: translate(-50%,0);
+}
+@keyframes fade {
+    0% {opacity: 0%}
+    100% {opacity: 100%}
+}
+
+
+ /* The snackbar - position it at the bottom and in the middle of the screen */
+ #snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 100000000000000000000000000; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+    width: 250px;
+    height: 40px;
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  } 
+
+.info-table {
+    max-width: 30rem;
+    color: white;
+    border-color: white;
+    border: 2px solid;
+}
+
+.info-table tr {
+    background-color: var(--info);
+}
+
+#dietary-button {
+    max-width: 25rem;
+    text-align: right;
+    margin: auto;
+    padding-right: 2rem;
+}
+
+.modalDialog {position: fixed;font-family: Arial, Helvetica, sans-serif;top: 0;right: 0;bottom: 0;left: 0; background: rgba(0, 0, 0, 0.8);z-index: 99999999999;opacity:0; -webkit-transition: opacity 400ms ease-in; -moz-transition: opacity 400ms ease-in;transition: opacity 400ms ease-in; pointer-events: none;}  .modalDialog:target {opacity:1;pointer-events: auto;}  .modalDialog > div {width: 100%;position: relative;margin: 20% auto;}@-webkit-keyframes rotate-forever { 0% { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); } } @-moz-keyframes rotate-forever { 0% { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); } } @keyframes rotate-forever { 0% { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); -moz-transform: rotate(360deg); -ms-transform: rotate(360deg); -o-transform: rotate(360deg); transform: rotate(360deg); } } .loading-spinner { -webkit-animation-duration: 0.75s; -moz-animation-duration: 0.75s; animation-duration: 0.75s; -webkit-animation-iteration-count: infinite; -moz-animation-iteration-count: infinite; animation-iteration-count: infinite; -webkit-animation-name: rotate-forever; -moz-animation-name: rotate-forever; animation-name: rotate-forever; -webkit-animation-timing-function: linear; -moz-animation-timing-function: linear; animation-timing-function: linear; height: 30px; width: 30px; border: 8px solid #ffffff; border-right-color: transparent; border-radius: 50%; display: inline-block; }.loading-spinner { position: absolute; top: 50%; right: 0; bottom: 0; left: 50%; margin: -15px 0 -15px;}
+
+.spacer {
+    height: 3rem;
+}
+
+#clean_info {
+    padding: 15px;
+}
+
+.status-red {
+    background: #840000 !important;
+    color: white;
+}
+
+.status-dark-orange{
+    background: #ff5400 !important;
+    color: black;
+}
+
+.status-orange {
+    background: orange !important;
+    color: black;
+}
+
+.status-light {
+    background: #ffe3b1 !important;
+}
+
+
+
+
+
+/* ---------------Animation---------------- */
+
+.slit-in-vertical {
+	-webkit-animation: fade-in 0.45s ease-out both;
+	        animation: fade-in 0.45s ease-out both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*---------------#region Alert--------------- */
+
+
+#dialogbox{
+  display: none;
+  position: fixed;
+  background: var(--primary);
+  border-radius:7px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
+  transition: all 1s;
+  max-width: 35rem;
+  z-index: 1000000000000000000000000000000000;
+  top:0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.pure-material-button-contained {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  min-width: 64px;
+  height: 36px;
+  vertical-align: middle;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: var(--primary);
+  background-color: var(--third);
+  /* background-color: rgb(1, 47, 61) */
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  line-height: 36px;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.pure-material-button-contained::-moz-focus-inner {
+  border: none;
+}
+
+/* ---------------Overlay--------------- */
+
+.pure-material-button-contained::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: var(--primary);
+  background-color: var(--third);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* Ripple */
+.pure-material-button-contained::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  padding: 50%;
+  width: 32px; /* Safari */
+  height: 32px; /* Safari */
+  color: var(--primary);
+  background-color: var(--info);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 1s, transform 0.5s;
+}
+
+/* Hover, Focus */
+.pure-material-button-contained:hover,
+.pure-material-button-contained:focus {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:hover::before {
+  opacity: 0.08;
+}
+
+.pure-material-button-contained:focus::before {
+  opacity: 0.24;
+}
+
+.pure-material-button-contained:hover:focus::before {
+  opacity: 0.3;
+}
+
+/* Active */
+.pure-material-button-contained:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:active::after {
+  opacity: 0.32;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0s;
+}
+
+/* Disabled */
+.pure-material-button-contained:disabled {
+  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+  background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.12);
+  box-shadow: none;
+  cursor: initial;
+}
+
+.pure-material-button-contained:disabled::before {
+  opacity: 0;
+}
+
+.pure-material-button-contained:disabled::after {
+  opacity: 0;
+}
+
+#dialogbox > div{ 
+  background:#FFF; 
+  margin:8px; 
+}
+
+#dialogbox > div > #dialogboxhead{ 
+  background: var(--theader); 
+  font-size:19px; 
+  padding:10px; 
+  color:rgb(255, 255, 255); 
+}
+
+#dialogbox > div > #dialogboxbody{ 
+  background:var(--theader); 
+  padding:20px; 
+  color:#FFF; 
+}
+
+#dialogbox > div > #dialogboxfoot{ 
+  background: var(--theader); 
+  padding:10px; 
+  text-align:right; 
+  display: flex;
+  justify-content: flex-end;
+}
+/*#endregion Alert*/
+.hide_box {
+    opacity: 0 !important;
+}
+
+#alert-container {
+    z-index: 1;
+ }
+
+ #alert-container .alert-msg {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: var(--primary);
+    bottom: 25px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    left: 25px;
+    padding: 15px;
+    position: fixed;
+    z-index: 9999999999999999999;
+    min-width: 10rem;
+    font-size: 1.25em;
+    padding: 20px;
+ }
+
+ #alert-container .alert-msg:before {
+    color: white;
+    content: "\f06a";
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-right: 10px;
+    vertical-align: sub;
+ }
+ 
+ .slide-in {
+       animation-name: slideIn;
+       animation-duration: 0.8s;
+ }
+ 
+ @keyframes slideIn {
+    from {
+       transform: translateX(-400px);
+    }
+    
+    to {
+       transform: translateX(0);
+    }
+ }
+ 
+ .slide-out {
+       animation-name: slideOut;
+       animation-duration: 0.8s;
+ }
+ 
+ @keyframes slideOut {
+    from {
+       transform: translateY(0);
+       opacity: 1;
+    }
+    
+    to {
+       transform: translateY(80px);
+       opacity: 0;
+    }
+ }
+
+ .fa,.fab,.fad,.fal,.far,.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Brands";
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: url(../webfonts/fa-brands-400.eot);
+  src: url(../webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(../webfonts/fa-brands-400.woff2) format("woff2"),url(../webfonts/fa-brands-400.woff) format("woff"),url(../webfonts/fa-brands-400.ttf) format("truetype"),url(../webfonts/fa-brands-400.svg#fontawesome) format("svg")
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands"
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url(../webfonts/fa-regular-400.eot);
+  src: url(../webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"),url(../webfonts/fa-regular-400.woff2) format("woff2"),url(../webfonts/fa-regular-400.woff) format("woff"),url(../webfonts/fa-regular-400.ttf) format("truetype"),url(../webfonts/fa-regular-400.svg#fontawesome) format("svg")
+}
+
+.far {
+  font-weight: 400
+}
+
+@font-face {
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url(../webfonts/fa-solid-900.eot);
+  src: url(../webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),url(../webfonts/fa-solid-900.woff2) format("woff2"),url(../webfonts/fa-solid-900.woff) format("woff"),url(../webfonts/fa-solid-900.ttf) format("truetype"),url(../webfonts/fa-solid-900.svg#fontawesome) format("svg")
+}
+
+.fa,.far,.fas {
+  font-family: "Font Awesome 5 Free"
+}
+
+.fa,.fas {
+  font-weight: 900
+}
+
+.fa-exclamation-circle:before {
+  content: "\f06a"
+}
+
+.no_help {
+  background: var(--info);
+  text-align: center;
+  max-width: 30rem;
+  margin: 5px auto;
+  padding: 10px 0;
+}
+
+.admin_form {
+  background: var(--info);
+  text-align: center;
+  margin: 10px auto;
+  padding: 10px 0;
+  max-width: 800px;
+  width: 100%;
+}

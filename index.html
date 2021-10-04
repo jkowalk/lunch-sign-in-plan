@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3f4344">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <script src="src/app.js" type="module"></script>
+    <script src="src/language.js"></script>
+    <script src="src/settings.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <title>Lunch Plan</title>
+</head>
+<body>
+<main>
+<div id="info"></div>
+<div class="spacer"></div>
+<div id="signup"></div>
+
+<div class="spacer"></div>
+<div id="cleaning_list"></div> 
+<div id="statistics"></div>
+
+<div style="height: 4em"></div>
+
+<div id="openModalLoading" class="modalDialog"><div><div class="loading-spinner"></div></div></div>
+<div id="alert-container"></div>
+   
+</main>
+<div id="dialogbox" class="slit-in-vertical">
+        <div>
+            <div id="dialogboxhead">
+                <i class="fa fa-exclamation-circle" aria-hidden="true"></i> 
+                </div><div id="dialogboxbody"></div>
+                <div id="dialogboxfoot">
+                    <button id="custom_alert_reject" class="pure-material-button-contained active"></button>
+                    <div>&nbsp;</div>
+                    <button id="custom_alert_accept" class="pure-material-button-contained active"></button>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
