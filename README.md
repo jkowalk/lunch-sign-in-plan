@@ -70,12 +70,14 @@ First of all you can sign up to eat, cook or clean after the meal. But there is 
 * For those who also use the <a href="https://www.flatastic-app.com/" target="_blank">Flatastic App</a> you can add display your __cleaning list__ on the page as well
 
 * __Translation__: All Strings are saved in one place and can easily be translated. German and English is already available.
-<div style="display:flex; justify-content: space-evenly;">
-<div style="width:400px; margin:5px;"><img src="images/notification.png"></div>
-<div style="width:400px; margin:5px;"><img src="images/admin_panel.png"></div>
-<div style="width:400px; margin:5px;"><img src="images/cleaning_list.png"></div>
-</div>
 
+<br>
+
+Custom Notification            |  Admin Panel                  |  Cleaning List
+:-------------------------:|:-------------------------:|:-------------------------:
+![](images/notification.png)  |  ![](images/admin_panel.png) |   ![](images/cleaning_list.png)
+
+<br>
 
 <!-- GETTING STARTED -->
 ## Getting Started
