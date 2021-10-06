@@ -1,5 +1,6 @@
 import DatabaseConnection from "../database/database_connection.js";
 import HandleAction from "../controller/handle_action.js";
+import Customization from "../controller/customization.js";
 
 /**
  * Important Information for Today and Tomorrow
@@ -80,6 +81,10 @@ import HandleAction from "../controller/handle_action.js";
      * Displays the Info
      */
     _display_info() {
+        var user;
+        if(Customization.is_initialized()) {
+            user = Customization.is_initialized().get_user();
+        }
         var eaters_today_str = "";
         for (var i = 0; i < this.eaters_today.length; i++) {
             eaters_today_str += this.eaters_today[i]["name"] + ", ";
@@ -95,7 +100,8 @@ import HandleAction from "../controller/handle_action.js";
                     "<table class='info-table'>" +
                         "<colgroup><col span='1' style='width: 30%;'><col span='1' style='width: 70%;'></colgroup>";
         if (this.cook_today === false) {
-            html += '<p class="no_help">' + LANG.no_one_cooking + "</p>";
+            html += '<p class="no_help">+++  ' + LANG.no_one_cooking +   "  +++";
+            html += ((typeof user != undefined) ? ("<br><button id='no_cook_today'>     " + LANG.i_will_do_it + "</button>") : "") + "</p>"
         } else {
             html += "<tr>" +
                         "<td>" + LANG.today_cooks + "</td><td><strong>" + this.cook_today['name'] + "</strong></td>" + 
@@ -106,7 +112,8 @@ import HandleAction from "../controller/handle_action.js";
         }
 
         if (this.cleaner_today === false) {
-            html += '<p class="no_help">' + LANG.no_one_cleaning + "</p>";
+            html += '<p class="no_help">+++  ' + LANG.no_one_cleaning +  "  +++";
+            html += ((typeof user != undefined) ? ("<br><button id='no_cleaner_today'>" + LANG.i_will_do_it + "</button>") : "") + "</p>"
         } else {
             html += "<tr>" + 
                         "<td>" + LANG.cleaner + ":</td><td><strong>" + this.cleaner_today['name'] + "</strong></td>" + 
@@ -120,11 +127,12 @@ import HandleAction from "../controller/handle_action.js";
         }
 
         // Tomorrow
-        html += "<h2>Morgen</h2>" + 
+        html += "<h2>" + LANG.tomorrow + "</h2>" + 
                     "<table class='info-table'>" + 
                         "<colgroup><col span='1' style='width: 30%;'><col span='1' style='width: 70%;'></colgroup>";
         if (this.info[1] === false) {
-            html += '<p class="no_help">' + LANG.no_one_cooking_tomorrow + "</p>";
+            html += '<p class="no_help">+++  ' + LANG.no_one_cooking_tomorrow + "  +++";
+            html += ((typeof user != undefined) ? ("<br><button id='no_cook_tomorrow'>     " + LANG.i_will_do_it + "</button>") : "") + "</p>";
         } else {
             html +=     "<tr>" +
                             "<td>" + LANG.tomorrow_cooks + "</td><td><strong>" + this.cook_tomorrow['name'] + "</strong></td>" +

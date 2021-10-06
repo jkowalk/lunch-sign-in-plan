@@ -17,7 +17,22 @@ export default class HandleAction {
     static initInfo() {
         try {
             document.getElementById('dietary-button').addEventListener('click', this.show_dietaries);
-        } catch (error) {} 
+        } catch (error) {}
+        try {
+            document.getElementById('no_cook_today').addEventListener('click', () => {
+                document.getElementById("cook_day_0").value = Customization.is_initialized().get_user();
+                this.change_cook(0)});
+        } catch {}
+        try {
+            document.getElementById('no_cleaner_today').addEventListener('click', () => {
+                document.getElementById("clean_day_0").value = Customization.is_initialized().get_user();
+                this.change_cleaner(0)});
+        } catch {}
+        try {
+            document.getElementById('no_cook_tomorrow').addEventListener('click', () => {
+                document.getElementById("cook_day_1").value = Customization.is_initialized().get_user();
+                this.change_cook(1)});
+        } catch (error) {}
     }
 
     /**

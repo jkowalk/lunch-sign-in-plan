@@ -3,6 +3,7 @@ import Users from "../model/users.js";
 import CleaningList from "../view/cleaning_list.js";
 import CustomAlert from "../view/helpers/custom_alert.js";
 import Statistics from "../view/statistics.js";
+import SignUp from "../view/signup.js";
 
 /**
  * Adding Customization to the list
@@ -42,7 +43,7 @@ export default class Customization {
      * @returns current user
      */
     async get_username(){
-        if(!this.user)
+        if(typeof this.user == undefined)
             return false;
         try {
             return (await Users.build()).get_user_from_id(this.user).name;
@@ -95,8 +96,9 @@ export default class Customization {
      * Adds highlighted rows
      * @returns 
      */
-    set_custom_view() {
-        if(!this.user ||this.user == -1)
+    async set_custom_view() {
+        await SignUp.build();
+        if(typeof this.user == undefined ||this.user == -1)
             return;
 
         var css = '.row_id_' + this.user + ' {background: #94b1d5 !important;}',
@@ -119,7 +121,7 @@ export default class Customization {
      * @returns true if current_user or current_editor == id
      */
     async check_useraction(id) {
-        if(!this.user || id == "-1") return true;
+        if(typeof this.user == undefined || id == "-1") return true;
         if(this.current_editor != id && this.user != id) { // check if edit was not wanted
             return false;
         }
@@ -150,6 +152,14 @@ export default class Customization {
     }
 
     /**
+     * Returns the current user false if guest
+     * @returns user
+     */
+    get_user() {
+        return this.user;
+    }
+
+    /**
      * Sets the current_editor
      * @param {int} editor id 
      */
@@ -161,7 +171,7 @@ export default class Customization {
      * Changes the user
      */
     change_user() {
-        if(this.user) {
+        if(typeof this.user !== undefined && this.user != -1) {
             var css = document.getElementsByTagName("style");
             css[css.length-1].innerText = "";
         }

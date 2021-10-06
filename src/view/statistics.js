@@ -110,10 +110,10 @@ export default class Statistics {
     }
 
     /**
-     * Checks if user has the worst eat/cook+clean value
+     * Checks if user has the worst or second worst eat/cook+clean value
      * @returns bool
      */
      is_worst(id) {
-        return this.stats[0].id == id;
+        return this.stats[0].id == id || (this.stats.length >= 4 && this.stats[1].id == id);
     }
 }

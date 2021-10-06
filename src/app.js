@@ -14,6 +14,11 @@ var last_updated = new Date();
  * Starts the app
  */
 async function load() {
+    if(DEFAULTS.enable_customization) {
+        new Customization();
+    } else {
+        document.getElementById("change_user_button").style.display = "none";
+    }
     LoadingOverlay.show();
     var x = [];
     x.push(Users.build());
@@ -38,11 +43,7 @@ async function load() {
     }
     LoadingOverlay.hide();
 
-    if(DEFAULTS.enable_customization) {
-        window.setTimeout(() => {new Customization();}, 750);
-    } else {
-        document.getElementById("change_user_button").style.display = "none";
-    }
+    
     
 
     /**
