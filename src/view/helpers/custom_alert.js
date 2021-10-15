@@ -10,7 +10,7 @@ export default class CustomAlert {
      * Displays the alertbox
      */
     static setup() {
-        document.getElementsByTagName("main")[0].style = "pointer-events: none";
+        document.getElementsByTagName("main")[0].style = "pointer-events: none; filter: blur(5px) brightness(0.5);";
         var dialogbox = document.getElementById('dialogbox');
         var dialogbox_head = document.getElementById('dialogboxhead');
         
