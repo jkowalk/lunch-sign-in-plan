@@ -122,8 +122,10 @@ export default class HandleAction {
     static async refresh() {
         LoadingOverlay.show();
         try {
+            let info = await Info.build();
             let signup = await SignUp.build();
             let statistics = await Statistics.build();
+            info = info.update_data();
             signup = signup.update_data();
             statistics = statistics.update_data();
         } catch (error) {
