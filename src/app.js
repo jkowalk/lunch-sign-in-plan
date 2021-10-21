@@ -49,21 +49,16 @@ async function load() {
     /**
      * Autoupdates the data
      */
-    window.setInterval(async function () {
+     window.setInterval(async function () {
         if (last_updated.toLocaleDateString() !== new Date().toLocaleDateString()) {
             try {
-                (await Info.build()).update_data();
                 (await CleaningList.build()).update_data();
-                (await Statistics.build()).update_data();
             } catch (error) {
-                CustomAlert.alert(LANG.error_explanation, LANG.error);
+                console.warn(error);
+                CustomAlert.toast(LANG.flatastic_error, "", CustomAlert.ERROR);
             }
         }
-        try {
-            (await SignUp.build()).update_data();
-        } catch (error) {
-            CustomAlert.alert(LANG.error_explanation, LANG.error);
-        }
+        await HandleAction.refresh();
         last_updated = new Date();
     }, DEFAULTS.auto_refresh_time);
 }
